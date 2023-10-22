@@ -21,18 +21,26 @@ const Banner = () => {
                 majority have suffered alteration in some form
               </p>
               <div>
-                <button className="btn btn-error mr-5">Discover More</button>
-                <button className="btn btn-outline text-white">
+                <button className="btn btn-error mr-5 bg-[#FF3811] text-white border-0">
+                  Discover More
+                </button>
+                <button className="btn btn-outline hover:bg-transparent hover:border-white text-white">
                   Latest Project
                 </button>
               </div>
             </div>
           </div>
           <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide6" className="btn btn-circle bg-transparent">
+            <a
+              href="#slide6"
+              className="btn btn-circle glass text-black border-white border-2"
+            >
               ❮
             </a>
-            <a href="#slide2" className="btn btn-circle btn-error">
+            <a
+              href="#slide2"
+              className="btn btn-circle btn-error bg-[#FF3811] text-white border-0"
+            >
               ❯
             </a>
           </div>
@@ -49,18 +57,26 @@ const Banner = () => {
                 majority have suffered alteration in some form
               </p>
               <div>
-                <button className="btn btn-error mr-5">Discover More</button>
-                <button className="btn btn-outline text-white">
+                <button className="btn btn-error mr-5 bg-[#FF3811] text-white border-0">
+                  Discover More
+                </button>
+                <button className="btn btn-outline hover:bg-transparent hover:border-white text-white">
                   Latest Project
                 </button>
               </div>
             </div>
           </div>
           <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide1" className="btn btn-circle bg-transparent">
+            <a
+              href="#slide1"
+              className="btn btn-circle glass text-black border-white border-2"
+            >
               ❮
             </a>
-            <a href="#slide3" className="btn btn-circle btn-error">
+            <a
+              href="#slide3"
+              className="btn btn-circle btn-error bg-[#FF3811] text-white border-0"
+            >
               ❯
             </a>
           </div>
@@ -77,18 +93,26 @@ const Banner = () => {
                 majority have suffered alteration in some form
               </p>
               <div>
-                <button className="btn btn-error mr-5">Discover More</button>
-                <button className="btn btn-outline text-white">
+                <button className="btn btn-error mr-5 bg-[#FF3811] text-white border-0">
+                  Discover More
+                </button>
+                <button className="btn btn-outline hover:bg-transparent hover:border-white text-white">
                   Latest Project
                 </button>
               </div>
             </div>
           </div>
           <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide2" className="btn btn-circle bg-transparent">
+            <a
+              href="#slide2"
+              className="btn btn-circle glass text-black border-white border-2"
+            >
               ❮
             </a>
-            <a href="#slide4" className="btn btn-circle btn-error">
+            <a
+              href="#slide4"
+              className="btn btn-circle btn-error bg-[#FF3811] text-white border-0"
+            >
               ❯
             </a>
           </div>
@@ -105,18 +129,26 @@ const Banner = () => {
                 majority have suffered alteration in some form
               </p>
               <div>
-                <button className="btn btn-error mr-5">Discover More</button>
-                <button className="btn btn-outline text-white">
+                <button className="btn btn-error mr-5 bg-[#FF3811] text-white border-0">
+                  Discover More
+                </button>
+                <button className="btn btn-outline hover:bg-transparent hover:border-white text-white">
                   Latest Project
                 </button>
               </div>
             </div>
           </div>
           <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide3" className="btn btn-circle bg-transparent">
+            <a
+              href="#slide3"
+              className="btn btn-circle glass text-black border-white border-2"
+            >
               ❮
             </a>
-            <a href="#slide5" className="btn btn-circle btn-error">
+            <a
+              href="#slide5"
+              className="btn btn-circle btn-error bg-[#FF3811] text-white border-0"
+            >
               ❯
             </a>
           </div>
@@ -133,18 +165,26 @@ const Banner = () => {
                 majority have suffered alteration in some form
               </p>
               <div>
-                <button className="btn btn-error mr-5">Discover More</button>
-                <button className="btn btn-outline text-white">
+                <button className="btn btn-error mr-5 bg-[#FF3811] text-white border-0">
+                  Discover More
+                </button>
+                <button className="btn btn-outline hover:bg-transparent hover:border-white text-white">
                   Latest Project
                 </button>
               </div>
             </div>
           </div>
           <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide4" className="btn btn-circle bg-transparent">
+            <a
+              href="#slide4"
+              className="btn btn-circle glass text-black border-white border-2"
+            >
               ❮
             </a>
-            <a href="#slide6" className="btn btn-circle btn-error">
+            <a
+              href="#slide6"
+              className="btn btn-circle btn-error bg-[#FF3811] text-white border-0"
+            >
               ❯
             </a>
           </div>
@@ -161,18 +201,26 @@ const Banner = () => {
                 majority have suffered alteration in some form
               </p>
               <div>
-                <button className="btn btn-error mr-5">Discover More</button>
-                <button className="btn btn-outline text-white">
+                <button className="btn btn-error mr-5 bg-[#FF3811] text-white border-0">
+                  Discover More
+                </button>
+                <button className="btn btn-outline hover:bg-transparent hover:border-white text-white">
                   Latest Project
                 </button>
               </div>
             </div>
           </div>
           <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide5" className="btn btn-circle bg-transparent">
+            <a
+              href="#slide5"
+              className="btn btn-circle glass text-black border-white border-2"
+            >
               ❮
             </a>
-            <a href="#slide1" className="btn btn-circle btn-error">
+            <a
+              href="#slide1"
+              className="btn btn-circle btn-error bg-[#FF3811] text-white border-0"
+            >
               ❯
             </a>
           </div>
