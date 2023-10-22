@@ -1,10 +1,64 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 
 const NavBar = () => {
+  const navLinks = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/services"
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+          }
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/blog"
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+          }
+        >
+          Blog
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+    </>
+  );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 h-28 mb-4">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,54 +81,22 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navLinks}
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className="w-3/4" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <ul className="menu menu-horizontal px-1 text-lg font-semibold">
+            {navLinks}
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <button className="btn btn-error btn-outline capitalize">
+            Appointment
+          </button>
         </div>
       </div>
     </div>
