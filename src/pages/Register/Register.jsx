@@ -4,8 +4,8 @@ import fb from '../../assets/icons/fbIcon.svg';
 import lk from '../../assets/icons/lkIcon.svg';
 import gg from '../../assets/icons/ggIcon.svg';
 
-const Login = () => {
-  const handleLogin = e => {
+const Register = () => {
+  const handleRegister = e => {
     e.preventDefault;
   };
   return (
@@ -17,8 +17,20 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 py-12 px-8">
             <div className="card-body">
-              <h1 className="text-4xl text-center font-semibold">Login</h1>
-              <form onSubmit={handleLogin}>
+              <h1 className="text-4xl text-center font-semibold">Register</h1>
+              <form onSubmit={handleRegister}>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text font-semibold">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="your name"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text font-semibold">Email</span>
@@ -52,12 +64,12 @@ const Login = () => {
                   <input
                     className="btn btn-error bg-[#FF3811] text-white capitalize"
                     type="submit"
-                    value="Login"
+                    value="Register"
                   />
                 </div>
               </form>
               <div className="text-center mt-7 space-y-4">
-                <p>Or Sign In with</p>
+                <p>Or Sign Up with</p>
                 <div className="flex gap-3 justify-center">
                   <button className="btn btn-circle">
                     <img src={fb} alt="" />
@@ -71,9 +83,9 @@ const Login = () => {
                 </div>
               </div>
               <p className="mt-4 text-center">
-                New to Car Doctor?{' '}
-                <Link to="/register" className="text-[#FF3811] font-bold">
-                  Register
+                Already have an account?{' '}
+                <Link to="/login" className="text-[#FF3811] font-bold">
+                  Login
                 </Link>
               </p>
             </div>
@@ -84,4 +96,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
