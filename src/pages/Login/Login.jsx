@@ -3,10 +3,25 @@ import img from '../../assets/images/login/login.svg';
 import fb from '../../assets/icons/fbIcon.svg';
 import lk from '../../assets/icons/lkIcon.svg';
 import gg from '../../assets/icons/ggIcon.svg';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+
   const handleLogin = e => {
-    e.preventDefault;
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    loginUser(email, password)
+      .then(res => {
+        console.log(res.user);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
   };
   return (
     <div className="my-20">
