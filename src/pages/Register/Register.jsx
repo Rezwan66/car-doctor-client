@@ -5,9 +5,10 @@ import lk from '../../assets/icons/lkIcon.svg';
 import gg from '../../assets/icons/ggIcon.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
 
   const handleRegister = e => {
     e.preventDefault();
@@ -19,9 +20,15 @@ const Register = () => {
     createUser(email, password)
       .then(res => {
         console.log(res.user);
+        updateUser(name)
+          .then(() => {
+            toast.success('User created successfully!');
+          })
+          .catch(err => toast.error(err.message));
       })
       .catch(err => {
-        console.log(err.message);
+        // console.log(err.message);
+        toast.error(err.message);
       });
   };
   return (

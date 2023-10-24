@@ -5,6 +5,7 @@ import lk from '../../assets/icons/lkIcon.svg';
 import gg from '../../assets/icons/ggIcon.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -18,9 +19,11 @@ const Login = () => {
     loginUser(email, password)
       .then(res => {
         console.log(res.user);
+        toast.success('Logged in successfully!');
       })
       .catch(err => {
-        console.log(err.message);
+        // console.log(err.message);
+        toast.error(err.message);
       });
   };
   return (
