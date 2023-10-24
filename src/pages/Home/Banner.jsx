@@ -13,7 +13,7 @@ const Banner = () => {
           <img src={img1} className="w-full object-cover" />
           <div className="absolute h-full w-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] flex items-center">
             <div className="text-white space-y-7 max-w-[522px] pl-24">
-              <h2 className="text-6xl font-bold">
+              <h2 className="text-4xl md:text-6xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>

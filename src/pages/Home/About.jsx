@@ -3,9 +3,9 @@ import parts from '../../assets/images/about_us/parts.jpg';
 
 const About = () => {
   return (
-    <div className="mt-20 mb-32">
+    <div className="mt-20 lg:mb-36">
       <div className="hero">
-        <div className="hero-content flex-col lg:flex-row">
+        <div className="hero-content gap-36 flex-col lg:flex-row">
           <div className="lg:w-1/2 relative">
             <img
               src={person}

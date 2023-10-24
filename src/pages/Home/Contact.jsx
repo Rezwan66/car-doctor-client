@@ -5,7 +5,7 @@ import location from '../../assets/icons/location.svg';
 const Contact = () => {
   return (
     <div className="my-20 bg-[#151515] text-white py-20 px-16 rounded-lg">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-col gap-10 md:flex-row">
         <div className="flex items-center gap-5">
           <img src={timetable} alt="" />
           <div>
