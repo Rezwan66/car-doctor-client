@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
-const Services = () => {
+const Products = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
     fetch('services.json')
@@ -11,12 +11,12 @@ const Services = () => {
         setServices(data);
       });
   }, []);
-  // console.log('services', services);
+  //   console.log('services', services);
   return (
     <div className="my-20">
       <div className="text-center max-w-[700px] mx-auto">
-        <h3 className="text-xl font-bold text-[#FF3811]">Service</h3>
-        <h1 className="text-5xl font-bold">Our Service Area</h1>
+        <h3 className="text-xl font-bold text-[#FF3811]">Popular Products</h3>
+        <h1 className="text-5xl font-bold">Browse Our Products</h1>
         <p className="pt-6">
           The majority have suffered alteration in some form, by injected
           humour, or randomised words which don&apos;t look even slightly
@@ -58,4 +58,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Products;
