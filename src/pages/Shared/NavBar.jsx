@@ -1,7 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const NavBar = () => {
+  const { user, signoutUser } = useContext(AuthContext);
   const navLinks = (
     <>
       <li>
@@ -58,7 +62,7 @@ const NavBar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100 h-28 my-4">
+      <div className="navbar bg-base-100 h-28 my-4 items-center">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -84,7 +88,7 @@ const NavBar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost">
             <img src={logo} alt="" className="w-3/4" />
           </Link>
         </div>
@@ -94,9 +98,34 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-error btn-outline capitalize">
-            Appointment
-          </button>
+          {user ? (
+            <div className="flex flex-wrap items-center md:gap-4">
+              <p className="border p-3 border-error font-semibold rounded-lg">
+                {user.displayName}
+              </p>
+              <button className="btn btn-error btn-outline capitalize">
+                Appointment
+              </button>
+              <button
+                onClick={() =>
+                  signoutUser()
+                    .then(() => {
+                      toast.success('Signed Out Successfully!');
+                    })
+                    .catch(err => {
+                      toast.error(err.message);
+                    })
+                }
+                className="btn btn-error btn-outline capitalize"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <Link className="btn btn-error btn-outline capitalize" to="/login">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

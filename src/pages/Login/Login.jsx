@@ -29,7 +29,7 @@ const Login = () => {
   return (
     <div className="my-20">
       <div className="hero">
-        <div className="hero-content gap-52 flex-col lg:flex-row">
+        <div className="hero-content lg:gap-52 flex-col lg:flex-row">
           <div className="w-1/2">
             <img src={img} alt="" />
           </div>
