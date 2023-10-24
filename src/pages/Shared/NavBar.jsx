@@ -99,13 +99,13 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="flex flex-wrap items-center md:gap-4">
-              <p className="border p-3 border-error font-semibold rounded-lg">
-                {user.displayName}
+            <div className="flex flex-wrap items-center gap-4">
+              <p className="border p-3 border-error bg-[#FF3811] text-white font-semibold rounded-full">
+                {user.displayName
+                  .split(' ')
+                  .map(w => w[0])
+                  .join(' ')}
               </p>
-              <button className="btn btn-error btn-outline capitalize">
-                Appointment
-              </button>
               <button
                 onClick={() =>
                   signoutUser()
