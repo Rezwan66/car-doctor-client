@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg';
 import fb from '../../assets/icons/fbIcon.svg';
 import lk from '../../assets/icons/lkIcon.svg';
@@ -9,6 +9,9 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -20,6 +23,7 @@ const Login = () => {
       .then(res => {
         console.log(res.user);
         toast.success('Logged in successfully!');
+        navigate(location.state);
       })
       .catch(err => {
         // console.log(err.message);

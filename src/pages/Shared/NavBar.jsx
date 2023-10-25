@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import toast from 'react-hot-toast';
 
 const NavBar = () => {
-  const { user, signoutUser } = useContext(AuthContext);
+  const { user, loading, signoutUser } = useContext(AuthContext);
   const navLinks = (
     <>
       <li>
@@ -28,7 +28,7 @@ const NavBar = () => {
           About
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to="/services"
           className={({ isActive, isPending }) =>
@@ -57,6 +57,39 @@ const NavBar = () => {
         >
           Contact
         </NavLink>
+      </li> */}
+      {/* {user?.email ? (
+        <li>
+          <NavLink
+            to="/bookings"
+            className={({ isActive, isPending }) =>
+              isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+            }
+          >
+            My Bookings
+          </NavLink>
+        </li>
+      ) : (
+        <li>
+          <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+              isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+            }
+          >
+            Login
+          </NavLink>
+        </li>
+      )} */}
+      <li>
+        <NavLink
+          to="/bookings"
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'underline text-[#FF3811]' : ''
+          }
+        >
+          My Bookings
+        </NavLink>
       </li>
     </>
   );
@@ -83,7 +116,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className=" menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -93,15 +126,15 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-lg font-semibold">
+          <ul className="gap-6 menu-horizontal px-1 text-lg font-semibold">
             {navLinks}
           </ul>
         </div>
         <div className="navbar-end">
-          {user ? (
+          {user && !loading ? (
             <div className="flex flex-wrap items-center gap-4">
               <p className="border p-3 border-error bg-[#FF3811] text-white font-semibold rounded-full">
-                {user.displayName
+                {user?.displayName
                   .split(' ')
                   .map(w => w[0])
                   .join(' ')}
@@ -123,7 +156,7 @@ const NavBar = () => {
             </div>
           ) : (
             <Link className="btn btn-error btn-outline capitalize" to="/login">
-              Login
+              Appointment
             </Link>
           )}
         </div>

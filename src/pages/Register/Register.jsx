@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg';
 import fb from '../../assets/icons/fbIcon.svg';
 import lk from '../../assets/icons/lkIcon.svg';
@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = e => {
     e.preventDefault();
@@ -23,6 +24,7 @@ const Register = () => {
         updateUser(name)
           .then(() => {
             toast.success('User created successfully!');
+            navigate('/');
           })
           .catch(err => toast.error(err.message));
       })
@@ -30,6 +32,8 @@ const Register = () => {
         // console.log(err.message);
         toast.error(err.message);
       });
+
+    // window.location.reload();
   };
   return (
     <div className="my-20">
