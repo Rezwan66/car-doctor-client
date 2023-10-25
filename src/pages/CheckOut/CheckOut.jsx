@@ -2,12 +2,15 @@ import { useLoaderData } from 'react-router-dom';
 import bannerImg from '../../assets/images/checkout/checkout.png';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const CheckOut = () => {
   const service = useLoaderData();
-  const { _id, title, price } = service;
+  //   console.log(service);
+  const { _id, title, price, img } = service;
   const { user } = useContext(AuthContext);
   //   console.log(user?.displayName, user?.email);
+  //   console.log(img);
 
   const handleBookService = e => {
     e.preventDefault();
@@ -15,14 +18,32 @@ const CheckOut = () => {
     const name = form.name.value;
     const date = form.date.value;
     const email = user?.email;
-    const order = {
+    const booking = {
       customerName: name,
       date,
       email,
-      service: _id,
+      img: img,
+      service: title,
+      service_id: _id,
       price: price,
     };
-    console.log(order);
+    // console.log(booking);
+
+    fetch('http://localhost:5000/bookings', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(booking),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          toast.success('Order Confirmed!');
+          form.reset();
+        }
+      });
   };
 
   return (
