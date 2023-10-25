@@ -11,9 +11,11 @@ const About = () => {
               src={person}
               className="w-[460px] h-[460px] object-cover rounded-lg shadow-2xl"
             />
+            <div className="absolute hidden lg:block top-1/2 left-[138px] w-[322px] h-2 bg-white"></div>
+            <div className="absolute hidden lg:block top-1/2 left-[130px] w-2 h-[230px] bg-white"></div>
             <img
               src={parts}
-              className="w-[330px] h-[330px] rounded-lg shadow-2xl absolute right-20 top-1/2 border-8 border-white"
+              className="w-[330px] h-[330px] rounded-lg shadow-2xl absolute right-20 top-1/2 border-t-8 border-transparent"
             />
           </div>
           <div className="lg:w-1/2 pr-16">
