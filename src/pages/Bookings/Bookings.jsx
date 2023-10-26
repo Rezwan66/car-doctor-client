@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import BookingRow from './BookingRow';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-  console.log(bookings);
+  // console.log(bookings);
 
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
@@ -14,7 +15,7 @@ const Bookings = () => {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setBookings(data);
       });
   }, [url]);
@@ -48,6 +49,31 @@ const Bookings = () => {
     });
   };
 
+  const handleConfirmBooking = _id => {
+    console.log(_id);
+    fetch(`http://localhost:5000/bookings/${_id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ status: 'confirmed' }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          // update state
+          toast.success('Booking confirmed!!!');
+          // changed status in the ui
+          const remaining = bookings.filter(b => b._id !== _id);
+          const updated = bookings.find(b => b._id === _id);
+          updated.status = 'confirm';
+          const newBookings = [updated, ...remaining];
+          setBookings(newBookings);
+        }
+      });
+  };
+
   return (
     <div>
       <h2 className="text-4xl font-semibold text-center">
@@ -75,6 +101,7 @@ const Bookings = () => {
                   key={booking._id}
                   booking={booking}
                   handleDelete={handleDelete}
+                  handleConfirmBooking={handleConfirmBooking}
                 ></BookingRow>
               ))}
             </tbody>
