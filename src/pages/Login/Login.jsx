@@ -6,11 +6,12 @@ import gg from '../../assets/icons/ggIcon.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const navigate = useNavigate();
 
   const handleLogin = e => {
@@ -18,12 +19,37 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     loginUser(email, password)
       .then(res => {
-        console.log(res.user);
+        const loggedUser = res.user;
+        console.log(loggedUser);
         toast.success('Logged in successfully!');
-        navigate(location.state);
+
+        // GET JWT ACCESS TOKEN
+        // const loggedInUser = { email };
+        // axios
+        //   .post('http://localhost:5000/jwt', loggedInUser, {
+        //     withCredentials: true,
+        //   })
+        //   .then(res => {
+        //     console.log(res.data);
+        //     if (res.data.success) {
+        //       navigate(location?.state ? location?.state : '/');
+        //     }
+        //   })
+        //   .catch(err => toast.error(err.message));
+
+        // GET JWT ACCESS TOKEN AGAIN
+        const user = { email };
+        axios
+          .post('http://localhost:5000/jwt', user, { withCredentials: true })
+          .then(res => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : '/');
+            }
+          });
       })
       .catch(err => {
         // console.log(err.message);

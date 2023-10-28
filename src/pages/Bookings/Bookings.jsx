@@ -3,6 +3,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import BookingRow from './BookingRow';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
@@ -12,12 +13,28 @@ const Bookings = () => {
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
   useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data);
-        setBookings(data);
-      });
+    axios
+      .get(url, { withCredentials: true })
+      .then(res => {
+        console.log(res.data);
+        setBookings(res.data);
+      })
+      .catch(err => toast.error(err.message));
+
+    // axios
+    //   .get(url, { withCredentials: true })
+    //   .then(res => {
+    //     console.log(res.data);
+    //     setBookings(res.data);
+    //   })
+    //   .catch(err => toast.error(err.message));
+
+    // fetch(url)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     // console.log(data);
+    //     setBookings(data);
+    //   });
   }, [url]);
 
   const handleDelete = _id => {
