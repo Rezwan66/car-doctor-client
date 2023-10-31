@@ -134,10 +134,10 @@ const NavBar = () => {
           {user && !loading ? (
             <div className="flex flex-wrap items-center gap-4">
               <p className="border p-3 border-error bg-[#FF3811] text-white font-semibold rounded-full">
-                {user?.displayName
-                  .split(' ')
-                  .map(w => w[0])
-                  .join(' ')}
+                {user?.displayName}
+                {/* .split(' ')
+                   .map(w => w[0])
+                   .join(' ') */}
               </p>
               <button
                 onClick={() =>
