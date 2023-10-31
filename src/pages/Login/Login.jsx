@@ -29,7 +29,7 @@ const Login = () => {
         // GET JWT ACCESS TOKEN
         // const loggedInUser = { email };
         // axios
-        //   .post('http://localhost:5000/jwt', loggedInUser, {
+        //   .post('https://car-doctor-server-umber-psi.vercel.app/jwt', loggedInUser, {
         //     withCredentials: true,
         //   })
         //   .then(res => {
@@ -43,7 +43,9 @@ const Login = () => {
         // GET JWT ACCESS TOKEN AGAIN
         const user = { email };
         axios
-          .post('http://localhost:5000/jwt', user, { withCredentials: true })
+          .post('https://car-doctor-server-umber-psi.vercel.app/jwt', user, {
+            withCredentials: true,
+          })
           .then(res => {
             console.log(res.data);
             if (res.data.success) {

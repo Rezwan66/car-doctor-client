@@ -12,7 +12,7 @@ const Bookings = () => {
   // console.log(bookings);
   const axiosSecure = useAxiosSecure();
 
-  // const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  // const url = `https://car-doctor-server-umber-psi.vercel.app/bookings?email=${user?.email}`;
   const url = `/bookings?email=${user?.email}`;
 
   useEffect(() => {
@@ -55,9 +55,12 @@ const Bookings = () => {
     }).then(result => {
       if (result.isConfirmed) {
         // Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
-        fetch(`http://localhost:5000/bookings/${_id}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://car-doctor-server-umber-psi.vercel.app/bookings/${_id}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then(res => res.json())
           .then(data => {
             console.log(data);
@@ -73,7 +76,7 @@ const Bookings = () => {
 
   const handleConfirmBooking = _id => {
     console.log(_id);
-    fetch(`http://localhost:5000/bookings/${_id}`, {
+    fetch(`https://car-doctor-server-umber-psi.vercel.app/bookings/${_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
